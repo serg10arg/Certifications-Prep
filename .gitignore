@@ -1,0 +1,46 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos generados por editores
+.vscode/
+.idea/
+*.code-workspace
+
+# Archivos temporales de sistemas operativos
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# Archivos de compilación o salida
+*.class
+*.jar
+*.war
+*.pyc
+*.o
+*.out
+*.exe
+
+# Archivos relacionados con bibliotecas externas
+node_modules/
+vendor/
+target/
+build/
+
+# Documentos pesados o generados automáticamente
+*.pdf
+*.docx
+*.pptx
+*.xlsx
+
+# Exclusión de contenido de seguridad
+*.env
+secrets/
+private/
+
+# Exclusión de contenido académico no esencial
+books/
+ebooks/
