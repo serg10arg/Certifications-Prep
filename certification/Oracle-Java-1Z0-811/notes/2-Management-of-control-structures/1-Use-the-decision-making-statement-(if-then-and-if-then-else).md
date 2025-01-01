@@ -124,8 +124,94 @@ if (edad >= 18) {
 
 ### 6. Consejos para el Examen
 
-- **Cuidado con la indentación**: Aunque la indentación no afecta la ejecución del código en Java, una buena indentación mejora la legibilidad y ayuda a evitar errores.
-- **Sentencias vacías**: Una sentencia vacía (`;`) es válida. Puedes usarla para un bloque `if` que no necesita ejecutar código.
-- **Asignación vs. Comparación**: Asegúrate de usar el operador de comparación `==` para comparar valores, no el operador de asignación `=`.
+- #### **Cuidado con la indentación**
 
-**Comprender las sentencias de decisión es fundamental para escribir programas Java que tomen decisiones. Estudia este cheatsheet, practica con ejemplos y estarás mejor preparado para el examen 1Z0-811.**
+  Aunque la indentación no afecta la ejecución del código en Java, una buena indentación mejora la legibilidad y ayuda a evitar errores.
+
+  **Ejemplo:**
+
+  ```java
+  public void ifTest(boolean flag) {
+    if (flag)
+    if (flag)
+    System.out.println("True False");
+    else
+    System.out.println("True True");
+    else
+    System.out.println("False False");
+  }
+  ```
+
+  El código tiene una indentación confusa que dificulta la lectura y comprensión. Para analizar este tipo de código, la **estrategia clave es re-indentarlo mentalmente o en un editor de texto simple**, como el Bloc de notas, para reflejar correctamente las asociaciones entre las sentencias `if` y `else`.
+
+  Aquí te explico cómo puedes aplicar esta estrategia paso a paso:
+
+  - **Identifica los bloques `if` y `else`:** El código tiene dos sentencias `if` (1 y 2) y dos sentencias `else` (3 y 4).
+  - **Recuerda la regla de asociación:** En Java, una sentencia `else` siempre se asocia con la sentencia `if` más cercana que no tenga un `else` asociado.
+  - **Re-indenta el código:** Basándote en la regla de asociación, puedes re-indentar el código para que la estructura sea más clara:
+
+    ```java
+    public void ifTest(boolean flag) {
+        if (flag) { //1
+            if (flag) { //2
+                System.out.println("True True");
+            } else { // 3
+                System.out.println("True False");
+            }
+        } else { // 4
+            System.out.println("False False");
+        }
+    }
+    ```
+
+    - **Analiza el flujo del código:** Ahora puedes leer el código con mayor facilidad:
+
+      - Si `flag` es `true`, se entra al primer bloque `if`.
+      - Si `flag` sigue siendo `true`, se imprime "True True".
+      - Si `flag` es `false`, se imprime "True False".
+      - Si `flag` es `false` desde el principio, se imprime "False False".
+
+      **Esta técnica de re-indentación te ayudará a comprender la lógica del código incluso cuando la indentación original sea confusa. Una vez que hayas re-indentado el código, puedes usar un editor como Netbeans o Eclipse para formatearlo automáticamente y compararlo con tu versión.**
+
+      Recuerda que **las fuentes mencionan que una mala indentación puede llevar a errores lógicos difíciles de detectar**. Por lo tanto, es **fundamental que puedas identificar y corregir la indentación para evitar confusiones y errores.**
+
+- #### **Sentencias vacías**
+
+  Una sentencia vacía (`;`) es válida. Puedes usarla para un bloque `if` que no necesita ejecutar código.
+
+  En programación, una **sentencia vacía** se refiere a una línea de código que **no contiene ninguna instrucción o acción**. Se representa simplemente por un **punto y coma (;)**. Aunque parezca superfluo, **es una sentencia válida en Java** y puede utilizarse en ciertos contextos, como en el caso de un bloque `if` que no requiere ejecutar ningún código.
+
+  Las fuentes explican que:
+
+  - Una sentencia vacía es una sentencia válida en Java.
+  - Puedes usar una sentencia vacía para un bloque `if` que no necesita ejecutar código.
+
+    **Ejemplo:**
+
+    ```java
+    boolean condicion = false;
+
+    if (condicion) {
+        // Este bloque se ejecutaría si la condición fuera verdadera.
+    } else {
+        ; // Sentencia vacía: no se ejecuta ninguna acción.
+    }
+
+    ```
+
+  En este caso, el bloque `else` contiene una sentencia vacía, lo que indica que no se debe realizar ninguna acción si la condición del `if` es falsa.
+
+  **¿Por qué usar una sentencia vacía?**
+
+  Aunque puede parecer redundante, hay situaciones donde una sentencia vacía puede ser útil para mejorar la legibilidad del código:
+
+  - **Claridad de intención:** Indica explícitamente que no se pretende realizar ninguna acción en un bloque de código específico.
+  - **Mantener la estructura del código:** Permite conservar la estructura de sentencias `if/else` incluso cuando no se requiere ejecutar código en una de las ramas.
+
+  Es importante destacar que, si bien las sentencias vacías son válidas, **su uso excesivo puede dificultar la legibilidad del código**. En general, es preferible reestructurar el código para evitar la necesidad de sentencias vacías.
+
+- #### **Asignación vs. Comparación**
+
+  Asegúrate de usar el operador de comparación `==` para comparar valores, no el operador de asignación `=`.
+
+  Comprender las sentencias de decisión es fundamental para escribir programas Java que tomen decisiones. Estudia este cheatsheet, practica con ejemplos y estarás mejor preparado para el examen 1Z0-811.\*\*
