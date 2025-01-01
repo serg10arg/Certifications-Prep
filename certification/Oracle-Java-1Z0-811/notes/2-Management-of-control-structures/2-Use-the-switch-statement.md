@@ -71,6 +71,166 @@ switch (dia) {
 ### 5. Consideraciones Importantes
 
 - **Las etiquetas `case` deben ser constantes**: No puedes usar variables en las etiquetas `case`.
+
+  En Java, la sentencia `switch` ofrece una forma concisa de ejecutar diferentes bloques de código según el valor de una expresión. Sin embargo, una regla fundamental es que **las etiquetas `case` deben ser constantes en tiempo de compilación**. Esto significa que **el valor de cada etiqueta `case` debe ser conocido por el compilador en el momento de la compilación, y no puede ser una variable cuyo valor se determine en tiempo de ejecución**.
+
+  **Ejemplos:**
+
+  **Código válido:**
+
+  ```java
+  int dia = 3;
+
+  switch (dia) {
+      case 1:
+          System.out.println("Lunes");
+          break;
+      case 2:
+          System.out.println("Martes");
+          break;
+      case 3:
+          System.out.println("Miércoles");
+          break;
+      default:
+          System.out.println("Día inválido");
+  }
+  ```
+
+  En este caso, las etiquetas `case` son constantes enteras (`1`, `2`, `3`), lo cual es válido.
+
+  **Código inválido:**
+
+  ```java
+  int dia = 3;
+  String diaSemana = "Miércoles";
+
+  switch (dia) {
+      case diaSemana: // Inválido: diaSemana es una variable, no una constante
+          System.out.println("Es miércoles");
+          break;
+      // ...
+  }
+  ```
+
+  En este caso, la etiqueta `case` usa la variable `diaSemana`, lo cual no está permitido.
+
+  Para corregir el código de la sentencia `switch` en el ejemplo de `diaSemana`, debes usar el valor numérico del día (`dia`) en la expresión `switch` y las etiquetas `case` deben ser los números correspondientes a los días de la semana.
+
+  Aquí está el código corregido:
+
+  ```java
+  int dia = 3;
+  String diaSemana = "Miércoles";
+
+  switch (dia) {
+      case 1:
+          diaSemana = "Lunes";
+          System.out.println("Es lunes");
+          break;
+      case 2:
+          diaSemana = "Martes";
+          System.out.println("Es martes");
+          break;
+      case 3:
+          diaSemana = "Miércoles";
+          System.out.println("Es miércoles");
+          break;
+      // ... casos para los demás días de la semana
+      default:
+          diaSemana = "Día inválido";
+          System.out.println("Día inválido");
+  }
+
+  ```
+
+  En este código corregido:
+
+  - La sentencia `switch` evalúa el valor de la variable `dia`, que es un número entero.
+  - Las etiquetas `case` son los números del 1 al 7, representando los días de la semana.
+  - El bloque de código correspondiente al `case 3` se ejecutará, ya que el valor de `dia` es 3.
+
+  **Recuerda que las etiquetas `case` deben ser constantes en tiempo de compilación**, es decir, valores conocidos por el compilador antes de que el programa se ejecute. En este caso, los números 1, 2, 3, etc. son constantes numéricas válidas.
+
+  En el contexto de la sentencia `switch` en Java, una constante se refiere a un valor cuyo valor se conoce en tiempo de compilación y **no puede cambiar durante la ejecución del programa**.
+
+  Las fuentes mencionan algunos ejemplos de constantes que pueden usarse como etiquetas `case`:
+
+  - **Literales numéricos:** como `10`, `20`, `5`, `1.5`, etc. El compilador conoce el valor exacto de estos literales en el momento de la compilación.
+  - **Literales de caracteres:** como `'a'`, `'B'`, `'?'`, etc. Al igual que los literales numéricos, su valor es fijo y conocido en tiempo de compilación.
+  - **Literales de cadena:** como `"hola"`, `"mundo"`, etc. El valor de la cadena se define entre comillas dobles y no cambia.
+  - **Constantes definidas con `final`:** Puedes declarar variables con la palabra clave `final`, lo que las convierte en constantes. Por ejemplo: `final int MAX_VALOR = 100;`. Una vez que se les asigna un valor, no se pueden modificar.
+  - **Expresiones constantes:** Las expresiones que involucran solo constantes también se consideran constantes en tiempo de compilación. Por ejemplo: `"Hola" + "Mundo"`, `2 * 5`, etc.
+
+  **Es importante recordar que las variables cuyo valor se determina en tiempo de ejecución no se consideran constantes y no se pueden usar como etiquetas `case`.**
+
+  Por ejemplo, si tienes una variable `int dia = obtenerDiaDeLaSemana()`, donde `obtenerDiaDeLaSemana()` es una función que devuelve el día actual de la semana, no puedes usar `dia` como etiqueta `case` porque su valor no se conoce hasta que se ejecuta el programa.
+
+  #### Literales numéricos
+
+  ```java
+  int numero = 10;
+  switch (numero) {
+      case 10:
+          System.out.println("El número es 10");
+          break;
+      default:
+          System.out.println("El número no es 10");
+  }
+  ```
+
+  #### Literales de caracteres
+
+  ```java
+  char caracter = 'a';
+  switch (caracter) {
+      case 'a':
+          System.out.println("El caracter es 'a'");
+          break;
+      default:
+          System.out.println("El caracter no es 'a'");
+  }
+  ```
+
+  #### Literales de cadena (a partir de Java 7)
+
+  ```java
+  String cadena = "hola";
+  switch (cadena) {
+      case "hola":
+          System.out.println("La cadena es 'hola'");
+          break;
+      default:
+          System.out.println("La cadena no es 'hola'");
+  }
+  ```
+
+  #### Constantes definidas con final
+
+  ```java
+  final int MAX_VALOR = 100;
+  int numero = 100;
+  switch (numero) {
+      case MAX_VALOR:
+          System.out.println("El número es el máximo");
+          break;
+      default:
+          System.out.println("El número no es el máximo");
+  }
+  ```
+
+  #### Expresiones constantes
+
+  ```java
+  int numero = 2 * 5;
+  switch (numero) {
+      case 2 * 5:
+          System.out.println("El número es el resultado de 2 * 5");
+          break;
+      default:
+          System.out.println("El número no es el resultado de 2 * 5");
+  }
+  ```
+
 - **Las etiquetas `case` deben ser únicas**: No puedes tener dos `case` con el mismo valor.
 - **No es necesario un orden específico**: Los `case` y el `default` pueden estar en cualquier orden.
 
