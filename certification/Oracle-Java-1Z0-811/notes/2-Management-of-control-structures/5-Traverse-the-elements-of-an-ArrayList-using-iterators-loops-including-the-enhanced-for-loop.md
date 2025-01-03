@@ -150,6 +150,39 @@ Azul
 ### 5. Consejos para el Examen
 
 - **Comprender cada método:** Asegúrate de entender cuándo usar cada método de recorrido.
-- **Ejemplos Prácticos:** Practica con ejemplos para familiarizarte con la sintaxis y el comportamiento de cada método.
 
-**Dominar el recorrido de `ArrayList` es esencial para el examen 1Z0-811. ¡Estudia este cheatsheet, practica, y estarás bien preparado!**
+  En el examen JFCJA, te encontrarás con varios métodos de la clase `ArrayList`. Los más comunes son:
+
+  **Para agregar elementos:**
+
+  - `add(E e)`: Agrega un elemento al final de la lista.
+  - `add(int index, E element)`: Inserta un elemento en una posición específica de la lista.
+  - `addAll(Collection<? extends E> c)`: Agrega todos los elementos de una colección al final de la lista.
+  - `addAll(int index, Collection<? extends E> c)`: Inserta todos los elementos de una colección en una posición específica de la lista.
+
+  **Para eliminar elementos:**
+
+  - `remove(int index)`: Elimina el elemento en la posición especificada.
+  - `remove(Object o)`: Elimina la primera aparición del elemento especificado.
+  - `removeAll(Collection<?> c)`: Elimina todos los elementos de la colección especificada que estén presentes en la lista.
+  - `clear()`: Elimina todos los elementos de la lista.
+
+  **Para reemplazar elementos:**
+
+  - `set(int index, E element)`: Reemplaza el elemento en la posición especificada por el nuevo elemento.
+
+  **Para leer la lista:**
+
+  - `contains(Object o)`: Verifica si la lista contiene el elemento especificado.
+  - `get(int index)`: Devuelve el elemento en la posición especificada.
+  - `indexOf(Object o)`: Devuelve el índice de la primera aparición del elemento especificado.
+  - `isEmpty()`: Verifica si la lista está vacía.
+  - `size()`: Devuelve el número de elementos en la lista.
+
+  **Otros métodos importantes:**
+
+  - `toString()`: Devuelve una representación en cadena de la lista.
+
+  **Es importante recordar que el examen JFCJA se enfoca en el uso básico de `ArrayList`, por lo que no necesitas conocer todos los métodos de la clase**. Enfócate en comprender la funcionalidad de los métodos más comunes y cómo usarlos en diferentes situaciones.
+
+  Te sugiero **revisar el material proporcionado**, especialmente las secciones que describen los métodos de `ArrayList` con ejemplos. La práctica te ayudará a familiarizarte con la sintaxis y el comportamiento de cada método.
